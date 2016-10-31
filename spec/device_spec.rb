@@ -1,5 +1,4 @@
 $: << "../lib"
-require 'RSpec'
 require 'device'
 
 class DeviceSpec

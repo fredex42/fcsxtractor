@@ -13,8 +13,8 @@ class ParentReferenceCollection
     }
   end
 
-  def each
-    @refs.each
+  def each(&b)
+    @refs.each(&b)
   end
 
   def length

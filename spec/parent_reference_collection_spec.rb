@@ -112,6 +112,13 @@ class ParentReferenceCollectionSpec
       it "loads in the pre-prepared XML and returns 3 references" do
         expect(c.length).to eq 3
       end
+
+      it "returns ParentReference objects with the right addresses for the 3 references" do
+        addresses = c.map { |x| x.address }
+        expect(addresses).to include("/dev/123/150825UNLGBT_FromGuAmRM.mov")
+        expect(addresses).to include("/dev/1/2670117_150825UNLGBT_FromGuAmRM.jpg")
+        expect(addresses).to include("/dev/1/2670118_150825UNLGBT_FromGuAmRM.jpg")
+      end
     end
   end
 end

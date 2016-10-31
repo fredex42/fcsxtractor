@@ -1,5 +1,4 @@
 $: << "../lib"
-require 'RSpec'
 require 'parent_reference'
 
 class ParentReferenceSpec
@@ -110,18 +109,18 @@ class ParentReferenceSpec
   RSpec.describe ParentReference, "#parse" do
     context "with a given test XML" do
       testdoc = Nokogiri::XML(test_xml)
-      testelem = testdoc.xpath("/session/values")[0]
+      testelem = testdoc.xpath("/session/values").first
       ref = ParentReference.new(testelem)
 
       it "should return the right address" do
-        expect(ref.address).to equal("/dev/123/150825UNLGBT_FromGuAmRM.mov")
+        expect(ref.address).to eq("/dev/123/150825UNLGBT_FromGuAmRM.mov")
       end
       it "should return the right link type" do
-        expect(ref.address).to equal("2")
+        expect(ref.link_type).to eq("2")
       end
 
       it "should return the right metadata" do
-        expect(ref.)
+        expect(ref.desc_size).to eq("1582378209")
       end
     end
   end

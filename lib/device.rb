@@ -4,7 +4,6 @@ require 'awesome_print'
 class Device
   def initialize(sourcexml)
     @doc = Nokogiri::XML(sourcexml)
-
   end
 
   def method_missing(called_name)
