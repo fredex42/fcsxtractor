@@ -10,7 +10,8 @@ Gem::Specification.new do |s|
   s.license       = 'GPLv3'
 
   s.add_development_dependency 'rspec', '>=3.5'
-  s.add_development_dependency 'awesome_print', '1.7.0'
+  s.add_development_dependency 'awesome_print', '>=1.7.0'
+  s.add_development_dependency 'rspec_junit_formatter', '>=0.2.3'
   s.add_runtime_dependency 'nokogiri', '>=1.5.6'
 
   s.required_ruby_version = '>=2.0.0'
