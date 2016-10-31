@@ -13,4 +13,8 @@ class Device
     raise KeyError, "no data for #{called_name}" unless(xmlnode.length>0)
     xmlnode.children.text.strip
   end
+
+  def decode_path(path)
+
+  end
 end
