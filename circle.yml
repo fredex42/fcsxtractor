@@ -1,4 +1,3 @@
 machine:
   ruby:
-    version: 2.0.0p481
-
+    version: 2.0.0
