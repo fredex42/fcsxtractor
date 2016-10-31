@@ -107,6 +107,11 @@ class ParentReferenceSpec
 </session>'
 
   RSpec.describe ParentReference, "#parse" do
+    context "class methods" do
+      it "unscrew a contentbase filename correctly" do
+        expect(ParentReference.unscrew_contentbase("2670118_150825UNLGBT_FromGuAmRM.jpg")).to eq("/be/28/000000000028be26/150825UNLGBT_FromGuAmRM.jpg")
+      end
+    end
     context "with a given test XML" do
       testdoc = Nokogiri::XML(test_xml)
       testelem = testdoc.xpath("/session/values").first
@@ -120,9 +125,11 @@ class ParentReferenceSpec
       end
 
       it "should return the right metadata" do
+        expect(ref.desc_device_address).to eq("/dev/123")
         expect(ref.desc_size).to eq("1582378209")
       end
     end
+
   end
 
 end
