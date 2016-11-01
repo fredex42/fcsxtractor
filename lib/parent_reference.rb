@@ -85,6 +85,8 @@ class ParentReference
         true
       when 15
         true
+      else
+        false
     end
   end
 
