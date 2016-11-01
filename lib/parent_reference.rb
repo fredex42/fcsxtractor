@@ -99,10 +99,19 @@ class ParentReference
     TYPE_DESCRIPTION[self.link_type.to_i]
   end
 
+  def self.pad_out_to(string,length,padchar)
+    pad_length = length-string.length
+    padding = ""
+    if pad_length>0
+      pad_length.times { padding += padchar }
+    end
+    "#{padding}#{string}"
+  end
+
   def self.unscrew_contentbase(filename)
     parts = /^\/*(\d+)_(.*)$/.match(filename)
     raise NameError, "#{filename} is not a contentbase filename" unless (parts)
-    hexified = parts[1].to_i.to_s(16)
+    hexified = ParentReference.pad_out_to(parts[1].to_i.to_s(16),6,'0')
     pathlead = hexified[2, 2]
     pathfollow = hexified[0, 2]
 

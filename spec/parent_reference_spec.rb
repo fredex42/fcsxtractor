@@ -110,6 +110,7 @@ class ParentReferenceSpec
     context "class methods" do
       it "unscrew a contentbase filename correctly" do
         expect(ParentReference.unscrew_contentbase("2670118_150825UNLGBT_FromGuAmRM.jpg")).to eq("/be/28/000000000028be26/150825UNLGBT_FromGuAmRM.jpg")
+        expect(ParentReference.unscrew_contentbase("368103_FOUNDLINGFINAL2_2964061.jpg")).to eq("/9d/05/0000000000059de7/FOUNDLINGFINAL2_2964061.jpg")
       end
     end
     context "with a given test XML" do
