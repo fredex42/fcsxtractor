@@ -70,11 +70,13 @@ begin
 
     update_doc = {
         doc: {
-            files: filesref.reduce(Hash.new) {|accumulator,elem| accumulator[elem[:type]]=elem[:path]}
+            files: filesref.reduce(Hash.new) {|accumulator,elem|
+	      accumulator.merge({elem[:type]=>elem[:path]})
+            }
         }
     }
     ap update_doc
-    $es.update(index:$opts.indexname,id: doc['_id'], body: update_doc)
+    $es.update(index:$opts.indexname,type: 'meta',id: doc['_id'], body: update_doc)
     n+=1
   }
 end while(result['hits']['hits'].length>=PAGESIZE)
