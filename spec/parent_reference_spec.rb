@@ -128,6 +128,10 @@ class ParentReferenceSpec
         expect(ref.desc_device_address).to eq("/dev/123")
         expect(ref.desc_size).to eq("1582378209")
       end
+
+      it "should return the right link type string" do
+        expect(ref.link_type_name).to eq("media")
+      end
     end
 
   end

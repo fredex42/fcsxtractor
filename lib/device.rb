@@ -13,7 +13,4 @@ class Device
     xmlnode.children.text.strip
   end
 
-  def decode_path(path)
-
-  end
 end
