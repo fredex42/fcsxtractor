@@ -75,8 +75,13 @@ begin
             }
         }
     }
-    ap update_doc
-    $es.update(index:$opts.indexname,type: 'meta',id: doc['_id'], body: update_doc)
+    if update_doc['doc']['files'].length>0
+      ap update_doc
+      $es.update(index:$opts.indexname,type: 'meta',id: doc['_id'], body: update_doc)
+    else
+      logger.warning("No files found for #{doc['_source']['ADDRESS']}")
+    end
+
     n+=1
   }
 end while(result['hits']['hits'].length>=PAGESIZE)
